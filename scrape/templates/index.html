@@ -1,0 +1,47 @@
+
+{% block content %}
+<center>
+   <table border="1">
+     <tr>
+    <th>Website</th>
+    <th>Section</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+  </tr>
+   {% for score_list in scores %}
+    <tr>
+        {% for score in score_list %}
+            <td> {{ score }} </td>
+        {% endfor %}
+    </tr>
+  {% endfor %}
+</table>
+</center>
+<br>
+<center>
+   <table border="1">
+     <tr>
+    <th>Website</th>
+    <th>Section</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+  </tr>
+   {% for row_list in rows %}
+    <tr>
+        {% for row in row_list %}
+            <td> {{ row }} </td>
+        {% endfor %}
+    </tr>
+  {% endfor %}
+</table>
+</center>
+ 
+{% endblock content %}
