@@ -25,7 +25,7 @@ SECRET_KEY = '@1b$h(b+*vg1o+j^i-c&x6+&9)%$zqo%9ymks160z45i^^s-2b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['scraping2300.herokuapp.com']
+ALLOWED_HOSTS = ['scrape12345.herokuapp.com']
 
 
 # Application definition
@@ -119,4 +119,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-heroku config:set DISABLE_COLLECTSTATIC=1
