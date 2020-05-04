@@ -17,10 +17,29 @@ def index(request):
 	ff = fetch_imager()
 	return render(request, "index.html", {"scores": fi,"rows":ff})
 
-	
+
+"""def fetch_imagery():
+	url = 'https://web.bet9ja.com/Sport/OddsToday.aspx?IDSport=590'
+	driver = webdriver.Chrome(r"c:/Users/my-project/mysite/chromedriver")
+	driver.get(url)
+	driver.implicitly_wait(10) # seconds
+	buttons = WebDriverWait(driver,20).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.Event.ng-binding")))
+	for btn in range(len(buttons)):
+		buttons = WebDriverWait(driver, 20).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.Event.ng-binding")))
+		buttons[btn].click()
+		headings= [item.text for item in driver.find_elements_by_css_selector("div.SECQ.ng-binding")]
+		keys = [item.text for item in driver.find_elements_by_css_selector("div.SEOdd.g1")]
+		values = [item.text for item in driver.find_elements_by_css_selector("div.SEOddLnk.ng-binding")]
+		driver.execute_script("window.history.go(-1)")
+		score_list_list=headings,keys,values
+		print(score_list_list)
+	return score_list_list"""
+
+
+
 
 def fetch_imagery():
-	url = 'https://web.bet9ja.com/Sport/SubEventDetail?SubEventID=77041674'
+	url = 'https://web.bet9ja.com/Sport/SubEventDetail?SubEventID=78264797'
 	driver = webdriver.Chrome(r"c:/Users/my-project/mysite/chromedriver")
 	driver.get(url)
 	driver.implicitly_wait(10) # seconds
@@ -44,14 +63,14 @@ def fetch_imagery():
 
 
 def fetch_imager():
-	url = 'https://www.betking.com/sports/s/event/p/soccer/simulated-reality-league/uefa-champions-league-srl/0/0'
+	url = 'https://www.betking.com/sports/s/event/p/soccer/turkmenistan/tkm-yokary-liga/0/0'
 	driver = webdriver.Chrome(r"c:/Users/my-project/mysite/chromedriver")
 	driver.get(url)
 	driver.implicitly_wait(10) # seconds
 	elements = [item.text for item in driver.find_elements_by_css_selector("th.eventOdds")]
 	names = [item.text for item in driver.find_elements_by_css_selector("th.headers")]
 	values = [item.text for item in driver.find_elements_by_css_selector("div.oddBorder")]
-	button = driver.find_element_by_xpath('//*[@id="match_2479586"]/td[12]/span')
+	button = driver.find_element_by_xpath('//*[@id="match_2500496"]/td[12]/span/i[1]')
 	driver.execute_script("arguments[0].click();", button)
 	headers = [item.text for item in driver.find_elements_by_css_selector("div.headerText")]
 	headings=elements[1:4]+headers[3:7]
@@ -59,8 +78,7 @@ def fetch_imager():
 	keys=names[0:8]+names1[38:46]
 	values1 = [item.text for item in driver.find_elements_by_css_selector("div.oddBorder")]
 	vals=values[0:8]+values1[38:46]
-	row_list_list=[
-	['betking.com',headings[0] , keys[0] , vals[0] , keys[1] , vals[1] , keys[2], vals[2]],
+	row_list_list=[['betking.com',headings[0] , keys[0] , vals[0] , keys[1] , vals[1] , keys[2], vals[2]],
 	['betking.com',headings[1] , keys[3] , vals[3] , keys[4] , vals[4] , keys[5], vals[5]],
 	['betking.com',headings[2] , keys[6] , vals[6] , keys[7] , vals[7]],
 	['betking.com',headings[3] , keys[8] , vals[8] , keys[9] , vals[9]], 
