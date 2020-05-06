@@ -1,7 +1,15 @@
-#Showing the data in table format in the web page 
-
 
 {% block content %}
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+table#t01 th {
+  background-color: black;
+  color: white;
+}
+</style>
 <center>
    <table border="1">
      <tr>
@@ -13,33 +21,101 @@
     <th>Value</th>
     <th>Key</th>
     <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Key</th>
+    <th>Value</th>
   </tr>
-   {% for score_list in scores %}
+   {% for score_list_list in score %}
     <tr>
-        {% for score in score_list %}
+        {% for score in score_list_list %}
             <td> {{ score }} </td>
-        {% endfor %}
-    </tr>
-  {% endfor %}
-</table>
-</center>
-<br>
-<center>
-   <table border="1">
-     <tr>
-    <th>Website</th>
-    <th>Section</th>
-    <th>Key</th>
-    <th>Value</th>
-    <th>Key</th>
-    <th>Value</th>
-    <th>Key</th>
-    <th>Value</th>
-  </tr>
-   {% for row_list in rows %}
-    <tr>
-        {% for row in row_list %}
-            <td> {{ row }} </td>
         {% endfor %}
     </tr>
   {% endfor %}

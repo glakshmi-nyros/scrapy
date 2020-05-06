@@ -8,14 +8,14 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 import json
+import itertools
 # the relevant url
 
 
 # Create your views here.
 def index(request):
-	fi = fetch_imagery()
-	ff = fetch_imager()
-	return render(request, "index.html", {"scores": fi,"rows":ff})
+	fi = fetch()
+	return render(request, "index.html", {"score": fi})
 
 
 """def fetch_imagery():
@@ -38,7 +38,7 @@ def index(request):
 
 
 
-def fetch_imagery():
+"""def fetch_imagery():
 	url = 'https://web.bet9ja.com/Sport/SubEventDetail?SubEventID=78706980'
 	driver = webdriver.Chrome(r"chromedriver")
 	driver.get(url)
@@ -86,8 +86,25 @@ def fetch_imager():
 	['betking.com',headings[5] , keys[12] , vals[12] , keys[12] , vals[12]],
 	['betking.com',headings[6] , keys[13] , vals[13] , keys[14] , vals[14]]]
 	for row in row_list_list:
-		return row_list_list
+		return row_list_list"""
 
-
-
-
+def fetch():
+	url = 'https://web.bet9ja.com/Sport/OddsToday.aspx?IDSport=590'
+	driver = webdriver.Chrome(r"c:/Users/SATYA/mysite/chromedriver")
+	driver.get(url)
+	driver.implicitly_wait(10) # seconds
+	buttons = WebDriverWait(driver,15).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.Event.ng-binding")))
+	for btn in range(len(buttons)):
+		if(btn==1):
+			buttons = WebDriverWait(driver, 15).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.Event.ng-binding")))
+			buttons[btn].click()
+			classes = [item.text for item in driver.find_elements_by_css_selector("div.SEItem.ng-scope")]
+			driver.execute_script("window.history.go(-1)")
+			clases = [elem.strip().split('\n') for elem in classes]
+			for li in clases:
+				li.remove('open')
+	score_list_list = clases
+	print(score_list_list)
+	filled_arr = list(zip(*itertools.zip_longest(*score_list_list, fillvalue='#')))
+	for score in filled_arr:
+		return filled_arr
