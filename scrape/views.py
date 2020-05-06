@@ -90,7 +90,7 @@ def fetch_imager():
 
 def fetch():
 	url = 'https://web.bet9ja.com/Sport/OddsToday.aspx?IDSport=590'
-	driver = webdriver.Chrome(r"chromedriver")
+	driver = webdriver.Firefox()
 	driver.get(url)
 	driver.implicitly_wait(10) # seconds
 	buttons = WebDriverWait(driver,15).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.Event.ng-binding")))
